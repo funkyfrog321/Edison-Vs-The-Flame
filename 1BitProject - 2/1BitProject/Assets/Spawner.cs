@@ -29,11 +29,8 @@ public class Spawner : MonoBehaviour
         // Build the list of spawn points
         for (int i = 0; i < spawnPointsHolder.transform.childCount; i++)
         {
-            Debug.Log(i);
-            Debug.Log(spawnPointsHolder.transform.GetChild(i).name);
             spawnPoints.Add(spawnPointsHolder.transform.GetChild(i));
         }
-        Debug.Log("spawnPoints Count: " + spawnPoints.Count);
     }
 
     // Update is called once per frame
@@ -55,9 +52,7 @@ public class Spawner : MonoBehaviour
     void spawnEnemy()
     {
         int spawn = Random.Range(0, spawnPoints.Count);
-        Debug.Log(spawn + ", with a max of " +  (spawnPoints.Count - 1));
         Transform spawnTransform = spawnPoints[spawn];
-        Debug.Log(spawn + ";  " + ";  x: " + spawnTransform.position.x + ";  z: " + spawnTransform.position.z );
 
         Instantiate(enemy, spawnTransform);
         enemy.GetComponent<Enemy>().plug = plug.transform;
