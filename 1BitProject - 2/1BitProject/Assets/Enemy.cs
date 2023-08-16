@@ -34,4 +34,9 @@ public class Enemy : MonoBehaviour
         // Move this object towards the target
         transform.position += moveDirection * moveDistance;
     }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Enemy destroyed");
+    }
 }
