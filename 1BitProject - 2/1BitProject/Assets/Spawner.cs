@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
 
     private float timeout;
 
+    public GameObject plug;
     public GameObject spawnPointsHolder;
     public List<Transform> spawnPoints = new List<Transform>();
 
@@ -59,6 +60,7 @@ public class Spawner : MonoBehaviour
         Debug.Log(spawn + ";  " + ";  x: " + spawnTransform.position.x + ";  z: " + spawnTransform.position.z );
 
         Instantiate(enemy, spawnTransform);
+        enemy.GetComponent<Enemy>().plug = plug.transform;
 
     }
 }
