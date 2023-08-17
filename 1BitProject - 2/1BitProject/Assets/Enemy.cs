@@ -17,23 +17,27 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Calculate the direction from this object to the target object
-        Vector3 directionToTarget = opponent.position - transform.position;
+        if (opponent != null)
+        {
+            // Calculate the direction from this object to the target object
+            Vector3 directionToTarget = opponent.position - transform.position;
 
-        // Calculate the distance between this object and the target object
-        float distanceToTarget = directionToTarget.magnitude;
+            // Calculate the distance between this object and the target object
+            float distanceToTarget = directionToTarget.magnitude;
 
-        // Normalize the direction vector to get the movement direction
-        Vector3 moveDirection = directionToTarget.normalized;
+            // Normalize the direction vector to get the movement direction
+            Vector3 moveDirection = directionToTarget.normalized;
 
-        // Calculate the distance to move this frame based on speed
-        float moveDistance = moveSpeed * Time.deltaTime;
+            // Calculate the distance to move this frame based on speed
+            float moveDistance = moveSpeed * Time.deltaTime;
 
-        // Limit the move distance to not overshoot the target
-        moveDistance = Mathf.Min(moveDistance, distanceToTarget);
+            // Limit the move distance to not overshoot the target
+            moveDistance = Mathf.Min(moveDistance, distanceToTarget);
 
-        // Move this object towards the target
-        transform.position += moveDirection * moveDistance;
+            // Move this object towards the target
+            transform.position += moveDirection * moveDistance;
+        }
+        
     }
 
     private void OnDestroy()

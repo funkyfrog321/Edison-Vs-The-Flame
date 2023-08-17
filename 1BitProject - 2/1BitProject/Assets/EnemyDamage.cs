@@ -23,11 +23,11 @@ public class EnemyDamage : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Owie");
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Owie");
             playerHealth.takeDamage(damage);
             
         }
