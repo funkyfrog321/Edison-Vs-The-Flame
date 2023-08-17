@@ -47,8 +47,9 @@ public class Spawner : MonoBehaviour
         }
         if (timeout == 0) { 
             // Timeout: spawn an enemy and reset the timer
-            spawnEnemy(); 
-            timeout = spawnRate; }
+            timeout = spawnRate;
+            spawnEnemy();  
+        }
     }
 
     void spawnEnemy()
