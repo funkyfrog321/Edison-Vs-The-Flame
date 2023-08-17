@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
 
     //bullet enemy class
     public GameObject enemy;
+   
+    public GameObject player;
 
     //Spawn Rate for Enemies
     public float spawnRate = 5;
@@ -45,8 +47,9 @@ public class Spawner : MonoBehaviour
         }
         if (timeout == 0) { 
             // Timeout: spawn an enemy and reset the timer
-            spawnEnemy(); 
-            timeout = spawnRate; }
+            timeout = spawnRate;
+            spawnEnemy();  
+        }
     }
 
     void spawnEnemy()
@@ -55,7 +58,7 @@ public class Spawner : MonoBehaviour
         Transform spawnTransform = spawnPoints[spawn];
 
         Instantiate(enemy, spawnTransform);
-        enemy.GetComponent<Enemy>().plug = plug.transform;
-
+        enemy.GetComponent<Enemy>().opponent = player.transform;
+        enemy.GetComponent<EnemyDamage>().playerHealth = player.GetComponent<PlayerHealth>();
     }
 }

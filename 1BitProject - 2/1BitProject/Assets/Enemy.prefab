@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4636784612240976172}
   - component: {fileID: 7183642349034263381}
   - component: {fileID: 7974658656225193659}
+  - component: {fileID: 4190811638202797502}
   - component: {fileID: 3600475487789850993}
   m_Layer: 0
   m_Name: Enemy
@@ -98,8 +99,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebe16efc0ab4cb42b6963757e3d242a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plug: {fileID: 0}
+  opponent: {fileID: 0}
   moveSpeed: 2.05
+--- !u!114 &4190811638202797502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415695702564224305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e653e83110ae2f9409842511dd5c59b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  damage: 2
 --- !u!61 &3600475487789850993
 BoxCollider2D:
   m_ObjectHideFlags: 0
