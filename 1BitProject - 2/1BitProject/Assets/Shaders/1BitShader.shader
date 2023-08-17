@@ -1,8 +1,9 @@
-Shader "Unlit/NewUnlitShader"
+Shader"Unlit/NewUnlitShader"
 {
     Properties {
         _MainTex ("Base (RGB)", 2D) = "white" {}
         _bwBlend ("Black & White blend", Range (0, 1)) = 0
+        _lumCutoff ("Black-White lum threshold", Range(0, 1)) = 0
     }
     SubShader {
         Pass {

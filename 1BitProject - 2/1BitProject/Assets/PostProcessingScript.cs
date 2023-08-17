@@ -10,12 +10,12 @@ public class PostProcessingScript : MonoBehaviour
     [Range(0f, 1f)]
     public float threshold;
     public float pixelizeAmount;
-    public Shader grayScaleShader;
+    public Shader shader;
     private Material material;
 
     void Awake()
     {
-        material = new Material(grayScaleShader);
+        material = new Material(shader);
     }
 
     void OnRenderImage(RenderTexture source, RenderTexture destination)
