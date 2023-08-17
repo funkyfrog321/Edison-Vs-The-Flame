@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Camera sceneCamera;
     private Vector2 mousePosition;
 
+    public int health;
 
     void Start()
     {
@@ -40,8 +41,10 @@ public class Player : MonoBehaviour
         {
             weapon.Fire();
         }
-        
+
 
 
     }
+
+
 }

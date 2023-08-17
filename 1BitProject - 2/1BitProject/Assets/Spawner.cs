@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
 
     //bullet enemy class
     public GameObject enemy;
+   
+    public GameObject player;
 
     //Spawn Rate for Enemies
     public float spawnRate = 5;
@@ -55,7 +57,7 @@ public class Spawner : MonoBehaviour
         Transform spawnTransform = spawnPoints[spawn];
 
         Instantiate(enemy, spawnTransform);
-        enemy.GetComponent<Enemy>().plug = plug.transform;
-
+        enemy.GetComponent<Enemy>().opponent = player.transform;
+        enemy.GetComponent<EnemyDamage>().playerHealth = player.GetComponent<PlayerHealth>();
     }
 }

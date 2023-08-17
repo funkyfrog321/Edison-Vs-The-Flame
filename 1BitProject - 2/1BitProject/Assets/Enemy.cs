@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform plug;
+    public Transform opponent; //literally just changed it 
     public float moveSpeed;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // Calculate the direction from this object to the target object
-        Vector3 directionToTarget = plug.position - transform.position;
+        Vector3 directionToTarget = opponent.position - transform.position;
 
         // Calculate the distance between this object and the target object
         float distanceToTarget = directionToTarget.magnitude;
