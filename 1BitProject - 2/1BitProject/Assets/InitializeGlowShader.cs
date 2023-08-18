@@ -8,6 +8,7 @@ public class InitializeGlowShader : MonoBehaviour
     private Material m_material;
     Camera camera;
     Vector3 lastPosition;
+    Matrix4x4 dither;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,11 @@ public class InitializeGlowShader : MonoBehaviour
 
         lastPosition = transform.position;
 
+        dither = new Matrix4x4(new Vector4(0, 8, 2, 10) * 0.0625f,
+                                new Vector4(12, 4, 14, 6) * 0.0625f,
+                                new Vector4(3, 11, 1, 9) * 0.0625f,
+                                new Vector4(15, 7, 13, 5) * 0.0625f);
+
     }
 
     // Update is called once per frame
@@ -30,6 +36,7 @@ public class InitializeGlowShader : MonoBehaviour
         {
             Vector4 center = new Vector4(precenter.x, precenter.y, precenter.z, 0.0f);
             m_material.SetVector("_center", center);
+            m_material.SetMatrix("_ordered_bayer", dither);
             lastPosition = precenter;
         }
     }

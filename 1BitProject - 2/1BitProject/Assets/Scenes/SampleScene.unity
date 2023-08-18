@@ -402,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5d9b2fc0b19df44b891be4c68942f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0
-  threshold: 0.369
+  intensity: 1
+  threshold: 0.083
   pixelizeAmount: 2
   shader: {fileID: 4800000, guid: aa60400c65a19f441ac43c8862f7d90b, type: 3}
 --- !u!1 &599200591

@@ -3,7 +3,7 @@ Shader"Unlit/Glow"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _intensity ("Light level", Range(0,1)) = 0
+        _intensity ("Light level", Float) = 1
         _pixel_size ("Size of pixels in effect", Integer) = 1
     }
     SubShader
@@ -22,7 +22,7 @@ Shader"Unlit/Glow"
             float _intensity;
             float _pixel_scale;
 uniform float2 _res;
-uniform int _pixel_size;
+uniform uint _pixel_size;
 uniform float4 _center;
 uniform float4x4 _ordered_bayer;
 
@@ -48,7 +48,7 @@ bool lit_crosshairs(int band_x, int band_y, int distance)
     return light;
 }
 
-bool lit_2(int band_x, int band_y, int distance)
+bool lit_2(uint band_x, uint band_y, uint distance)
 {
     bool light = 0.0;
     
@@ -57,6 +57,26 @@ bool lit_2(int band_x, int band_y, int distance)
     light = light | ((band_x * band_y + 2 * band_x + 2 * band_y + 4) % 3 == 0) && distance <= 64;
     
     return light;
+}
+
+float inverse_square(float distance)
+{
+    return 0.01 / pow(distance, 2.0);
+}
+
+float linear_light(float distance)
+{
+    return 0.00001*(-distance + 1);
+}
+
+float light_falloff(float distance)
+{
+    return linear_light(distance);
+}
+
+bool dither(uint band_x, uint band_y, float light_level)
+{   
+    return light_level > _ordered_bayer[band_x % 4][band_y % 4] - 0.5;
 }
 
 fixed4 frag(v2f_img i) : SV_TARGET
@@ -81,7 +101,7 @@ fixed4 frag(v2f_img i) : SV_TARGET
     int band_x = i.pos.x - (i.pos.x % _pixel_size);
     int band_y = i.pos.y - (i.pos.y % _pixel_size);
     
-    int2 norm_center = (_center.x - (_center.x % _pixel_size), _center.y - (_center.y % _pixel_size));
+    int2 norm_center = int2(_center.x - (_center.x % _pixel_size), _center.y - (_center.y % _pixel_size));
     
     // Get the distance in (pixel_size) pixels to the center of the light source
     int norm_distance_x = abs(band_x - (_center.x - (_center.x % _pixel_size)));
@@ -91,6 +111,10 @@ fixed4 frag(v2f_img i) : SV_TARGET
     
     float light_level = lit_2(band_x, band_y, norm_distance_xy);
 
+    light_level = dither(band_x, band_y, light_falloff(distance));
+    
+    light_level = light_level * _intensity;
+    
     c = float4(light_level, light_level, light_level, 1.0);
     
     return c;
