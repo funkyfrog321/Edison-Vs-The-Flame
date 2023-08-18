@@ -66,7 +66,7 @@ float inverse_square(float distance)
 
 float linear_light(float distance)
 {
-    return 0.00001*(-distance + 1);
+    return 0.01*(-distance + 1);
 }
 
 float light_falloff(float distance)
