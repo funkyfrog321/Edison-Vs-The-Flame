@@ -1661,6 +1661,10 @@ PrefabInstance:
       propertyPath: plug
       value: 
       objectReference: {fileID: 1096256251}
+    - target: {fileID: 7974658656225193659, guid: 910e14be04b141e46839ac12e73a21ff, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

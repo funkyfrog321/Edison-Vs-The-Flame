@@ -6,6 +6,9 @@ public class NewBehaviourScript : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    // Bullet will be destroyed after some time
+    public float max_lifetime = 0;
+    public float lifetime = 0;
 
 
     // Start is called before the first frame update
@@ -17,14 +20,23 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // max_lifetime of 0 means the bullet never times out
+        if (max_lifetime > 0)
+        {
+            lifetime += Time.deltaTime;
+            if (lifetime > max_lifetime)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
+            enemyScript.TakeDamage();
             Destroy(gameObject);
         }
     }

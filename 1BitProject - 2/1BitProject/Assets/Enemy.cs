@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     public Transform opponent; //literally just changed it 
     public float moveSpeed;
-    public float health;
+    public int health;
     
 
     // Start is called before the first frame update
@@ -43,6 +43,15 @@ public class Enemy : MonoBehaviour
             transform.position += moveDirection * moveDistance;
         }
         
+    }
+
+    public void TakeDamage(int damage = 1)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()

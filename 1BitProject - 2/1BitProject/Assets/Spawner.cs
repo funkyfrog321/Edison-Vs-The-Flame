@@ -61,9 +61,10 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void NextStage()
+    public void SetSpawnRate(int stage)
     {
-
+        spawnRate = 1 / (Mathf.Pow(1.1f, stage - 16.9f));
+        Debug.Log("Entered stage " + stage + " ;  spawn rate: " + spawnRate);
     }
 
     void SpawnEnemy()

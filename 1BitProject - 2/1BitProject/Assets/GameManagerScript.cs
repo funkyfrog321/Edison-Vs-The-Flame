@@ -6,10 +6,13 @@ using UnityEngine.Events;
 
 public class GameManagerScript : MonoBehaviour
 {
-    // TODO : exponentially increase spawn rate
-
     // Keep track of points
     private int points;
+    private int num_enemies_killed;
+
+    // Higher difficulty at later stages
+    private int stage;
+    const int ENEMIES_PER_STAGE = 3;
 
     // Chandelure spawn variables
     const int POINTS_TO_SPAWN_CHANDELURE = 5;
@@ -23,6 +26,8 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         points = 0;
+        num_enemies_killed = 0;
+        stage = 0;
 
         spawner.onEnemyKilled += OnEnemyKilled;
     }
@@ -37,7 +42,14 @@ public class GameManagerScript : MonoBehaviour
     {
         Debug.Log("Enemy kill confirmed");
         points += pointValue;
-        
+        num_enemies_killed += 1;
+
+        if (num_enemies_killed % ENEMIES_PER_STAGE == 0)
+        {
+            stage++;
+            spawner.SetSpawnRate(stage);
+        }    
+
         if (!chandelureSpawned && points >= POINTS_TO_SPAWN_CHANDELURE)
         {
             spawner.SpawnChandelure();

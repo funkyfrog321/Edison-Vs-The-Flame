@@ -104,7 +104,7 @@ MonoBehaviour:
       m_Calls: []
   opponent: {fileID: 0}
   moveSpeed: 0.95
-  health: 5
+  health: 20
 --- !u!114 &2993366635138519763
 MonoBehaviour:
   m_ObjectHideFlags: 0
