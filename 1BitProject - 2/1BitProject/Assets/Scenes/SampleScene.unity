@@ -404,7 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 0
   threshold: 0.369
-  pixelizeAmount: -0.6
+  pixelizeAmount: 2
   shader: {fileID: 4800000, guid: aa60400c65a19f441ac43c8862f7d90b, type: 3}
 --- !u!1 &599200591
 GameObject:
@@ -1226,8 +1226,8 @@ Transform:
   m_LocalScale: {x: 0.6215, y: 0.32784125, z: 0.6215}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 705165052}
   - {fileID: 679360945}
+  - {fileID: 705165052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1567992976
@@ -1620,15 +1620,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687026335608638696, guid: e9993e04d84645847b46f29376698fb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6687026335608638696, guid: e9993e04d84645847b46f29376698fb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06161523
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6687026335608638696, guid: e9993e04d84645847b46f29376698fb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 6687026335608638696, guid: e9993e04d84645847b46f29376698fb9, type: 3}
       propertyPath: m_LocalRotation.w
