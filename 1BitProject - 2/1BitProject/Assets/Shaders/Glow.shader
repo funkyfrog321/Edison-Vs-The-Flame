@@ -71,7 +71,7 @@ float linear_light(float distance)
 
 float light_falloff(float distance)
 {
-    return linear_light(distance);
+    return inverse_square(distance);
 }
 
 bool dither(uint band_x, uint band_y, float light_level)
