@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public UnityEvent killed = new UnityEvent();
+
+
     public Transform opponent; //literally just changed it 
     public float moveSpeed;
+    public float health;
     
 
     // Start is called before the first frame update
@@ -42,6 +47,6 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("Enemy destroyed");
+        killed.Invoke();
     }
 }

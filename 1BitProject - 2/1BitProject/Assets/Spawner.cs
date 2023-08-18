@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class Spawner : MonoBehaviour
     public GameObject spawnPointsHolder;
     public List<Transform> spawnPoints = new List<Transform>();
 
+    public UnityAction<int> onEnemyKilled;
+    //public UnityEvent<int> enemyKilled;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +41,7 @@ public class Spawner : MonoBehaviour
         {
             spawnPoints.Add(spawnPointsHolder.transform.GetChild(i));
         }
+        SpawnChandelure();
     }
 
     // Update is called once per frame
@@ -54,19 +61,26 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    void NextStage()
+    {
+
+    }
+
     void SpawnEnemy()
     {
         int spawn = Random.Range(0, spawnPoints.Count);
         Transform spawnTransform = spawnPoints[spawn];
 
-        Instantiate(enemy, spawnTransform);
-        enemy.GetComponent<Enemy>().opponent = player.transform;
-        enemy.GetComponent<EnemyDamage>().playerHealth = player.GetComponent<PlayerHealth>();
+        GameObject new_enemy = Instantiate(enemy, spawnTransform);
+        new_enemy.GetComponent<Enemy>().opponent = player.transform;
+        new_enemy.GetComponent<EnemyDamage>().playerHealth = player.GetComponent<PlayerHealth>();
+
+        new_enemy.GetComponent<Enemy>().killed.AddListener(() => onEnemyKilled(1));
     }
 
-    void SpawnChandelure()
+    public void SpawnChandelure()
     {
-
+        Debug.Log("Chandelure spawned");
         Transform spawnTransform = chandelureSpawn.GetComponent<Transform>();
 
         GameObject newChandelure = Instantiate(chandelure, spawnTransform);
