@@ -41,7 +41,6 @@ public class Spawner : MonoBehaviour
         {
             spawnPoints.Add(spawnPointsHolder.transform.GetChild(i));
         }
-        SpawnChandelure();
     }
 
     // Update is called once per frame
