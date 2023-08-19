@@ -11,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
     private int num_enemies_killed;
 
     // Higher difficulty at later stages
-    private int stage;
+    public int stage;
     const int ENEMIES_PER_STAGE = 3;
 
     // Chandelure spawn variables
