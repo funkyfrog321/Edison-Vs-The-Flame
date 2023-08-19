@@ -5,6 +5,9 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PostProcessingScript : MonoBehaviour
 {
+    public Color color1 = Color.white;
+    public Color color2 = Color.black;
+
     [Range (0f,1f)]
     public float intensity;
     [Range(0f, 1f)]
@@ -39,6 +42,8 @@ public class PostProcessingScript : MonoBehaviour
         material.SetFloat("_bwBlend", intensity);
         material.SetFloat("_lumCutoff", threshold);
         material.SetFloat("_adjustAmount", thing);
+        material.SetColor("_color1", color1);
+        material.SetColor("_color2", color2);
         Graphics.Blit(source, destination, material);
     }
 }
