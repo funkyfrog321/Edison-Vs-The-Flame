@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2651363753404470378}
   - component: {fileID: 2993366635138519763}
   - component: {fileID: 4341096888227002139}
+  - component: {fileID: 2998240899637893631}
   m_Layer: 0
   m_Name: Chandelure
   m_TagString: Enemy
@@ -109,7 +110,8 @@ MonoBehaviour:
       m_Calls: []
   opponent: {fileID: 0}
   moveSpeed: 0.95
-  health: 20
+  health: 240
+  isChandelure: 1
 --- !u!114 &2993366635138519763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +171,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5998077, y: 1.4588737}
   m_EdgeRadius: 0
+--- !u!114 &2998240899637893631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341619335687610082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb4bbd9a8e9f5a49ae4fa302c8886d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stage2: {fileID: 21300000, guid: 633c4118539f6664ba7405afea4edc9b, type: 3}
+  Stage3: {fileID: 21300000, guid: 96a829d34c81a3a48b6d52f7d11a026d, type: 3}
+  Stage4: {fileID: 21300000, guid: f65ad267fd2ae334d975c3b34bdd63cd, type: 3}
+  Stage5: {fileID: 21300000, guid: d3919462c6c422a4d8067e90b446e57c, type: 3}
+  StageFinal: {fileID: 21300000, guid: 1d918c8db0c70fd459cbb00350f0cc1f, type: 3}
 --- !u!1001 &14913145876364966
 PrefabInstance:
   m_ObjectHideFlags: 0
