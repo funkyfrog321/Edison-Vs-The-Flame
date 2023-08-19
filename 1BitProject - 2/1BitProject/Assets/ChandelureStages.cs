@@ -12,6 +12,8 @@ public class ChandelureStages : MonoBehaviour
     public Sprite StageFinal;
     int StageCounter = 0;
     List<Sprite> SpriteList = new List<Sprite>();
+
+    public List<GameObject> glowObjects;
     
 
     // Start is called before the first frame update
@@ -34,6 +36,8 @@ public class ChandelureStages : MonoBehaviour
     public void progressStage()
     {
         renderer.sprite = SpriteList[StageCounter];
+        Destroy(glowObjects[StageCounter]);
+
         StageCounter = StageCounter + 1;
 
     }

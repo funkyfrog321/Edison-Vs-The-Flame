@@ -25,6 +25,12 @@ public class PlayerHealth : MonoBehaviour
 
             //Display our game over screen
             OnPlayerDeath?.Invoke();
+
+            AudioSingleton.Instance.PlayGameOver();
+        }
+        else
+        {
+            AudioSingleton.Instance.PlayOof();
         }
     }
 
