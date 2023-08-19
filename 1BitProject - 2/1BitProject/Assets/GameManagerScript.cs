@@ -15,7 +15,7 @@ public class GameManagerScript : MonoBehaviour
     const int ENEMIES_PER_STAGE = 3;
 
     // Chandelure spawn variables
-    const int POINTS_TO_SPAWN_CHANDELURE = 5;
+    const int POINTS_TO_SPAWN_CHANDELURE = 180;
     bool chandelureSpawned = false;
 
     public Spawner spawner;
