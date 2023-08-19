@@ -11,6 +11,7 @@ public class AudioSingleton : MonoBehaviour
     public AudioSource edisonShoot;
     public AudioSource edisonKill;
     public AudioSource edisonGameover;
+    public AudioSource edisonOof;
 
     public static AudioSingleton Instance { get; private set; }
 
@@ -52,6 +53,11 @@ public class AudioSingleton : MonoBehaviour
     public void PlayStartup()
     {
         edisonStartup.Play();
+    }
+
+    public void PlayOof()
+    {
+        edisonOof.Play();
     }
 
     public void PlayGameOver()
