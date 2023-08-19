@@ -20,6 +20,8 @@ uniform float _adjustAmount;
 uniform float2 _res;
 uniform float4x4 _bayer;
 uniform int _pixel_size = 1;
+uniform float4 _color1;
+uniform float4 _color2;
 
 bool dither(uint band_x, uint band_y, float color)
 {
@@ -64,6 +66,7 @@ float4 frag(v2f_img i) : COLOR
                 
     float4 result = c;
     result.rgb = lerp(c.rgb, bw, _bwBlend);
+    result.rgb = lerp(_color2.rgb, _color1.rgb, result.r);
     
     return result;
 }
