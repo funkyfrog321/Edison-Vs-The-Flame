@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
             transform.position += moveDirection * moveDistance;
         }
 
+        
+
     }
 
     public void TakeDamage(int damage = 1)
