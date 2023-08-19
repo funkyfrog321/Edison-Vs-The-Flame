@@ -63,7 +63,8 @@ public class Spawner : MonoBehaviour
 
     public void SetSpawnRate(int stage)
     {
-        spawnRate = 1 / (Mathf.Pow(1.1f, stage - 16.9f));
+        //spawnRate = 1 / (Mathf.Pow(1.1f, stage - 16.9f));
+        spawnRate = 1 / (0.05f * (stage + 4));
         Debug.Log("Entered stage " + stage + " ;  spawn rate: " + spawnRate);
     }
 
