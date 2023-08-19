@@ -55,5 +55,7 @@ public class GameManagerScript : MonoBehaviour
             spawner.SpawnChandelure();
             chandelureSpawned = true;
         }
+
+        AudioSingleton.Instance.PlayEnemyKilled();
     }
 }
