@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioSingleton : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
 
+    //AudioMixer audioMixer = new AudioMixer();
+
+    public AudioSource edisonMusic;
     public AudioSource edisonStartup;
     public AudioSource edisonShoot;
     public AudioSource edisonKill;
@@ -26,17 +30,14 @@ public class AudioSingleton : MonoBehaviour
             Instance = this;
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
+    
+    public void PlayGameMusic()
     {
-        
+        edisonMusic.Play();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void StopGameMusic()
     {
-        
+        edisonMusic.Stop();
     }
 
     public void PlayEnemyKilled()

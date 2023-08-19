@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
             OnPlayerDeath?.Invoke();
 
             AudioSingleton.Instance.PlayGameOver();
+            AudioSingleton.Instance.StopGameMusic();
         }
         else
         {
