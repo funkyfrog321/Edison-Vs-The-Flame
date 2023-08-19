@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7974658656225193659}
   - component: {fileID: 4190811638202797502}
   - component: {fileID: 3600475487789850993}
+  - component: {fileID: -7737035008906201261}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 415695702564224305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -4.07, z: 0.0225524}
-  m_LocalScale: {x: 0.2319, y: 0.2319, z: 0.2319}
+  m_LocalPosition: {x: -0.282, y: -4.3721, z: 0.0225524}
+  m_LocalScale: {x: 0.17149608, y: 0.17149608, z: 0.17149608}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7334337955046229116}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e5ec57e20cec4f145b0c7ce4f0be4753, type: 3}
+  m_Sprite: {fileID: -1551081583, guid: 6f336393595e05a4481e6426ef9e5d8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,19 +153,40 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24, y: -0.42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.17, y: 2.91}
+    oldSize: {x: 10, y: 10.002442}
     newSize: {x: 3.17, y: 2.91}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.56, y: 3.09}
+  m_Size: {x: 5.6, y: 5.4}
   m_EdgeRadius: 0
+--- !u!95 &-7737035008906201261
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415695702564224305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8612298674d7e54eacd1c7e8548e0c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6497213142408554592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,12 +204,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4603366491728964636, guid: 7bfa292ea9c67f144a62725b6b95c8af, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.882561
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603366491728964636, guid: 7bfa292ea9c67f144a62725b6b95c8af, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.882561
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603366491728964636, guid: 7bfa292ea9c67f144a62725b6b95c8af, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1845667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603366491728964636, guid: 7bfa292ea9c67f144a62725b6b95c8af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 4603366491728964636, guid: 7bfa292ea9c67f144a62725b6b95c8af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 4603366491728964636, guid: 7bfa292ea9c67f144a62725b6b95c8af, type: 3}
       propertyPath: m_LocalPosition.z
