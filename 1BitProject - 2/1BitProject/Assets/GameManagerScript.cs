@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class GameManagerScript : MonoBehaviour
 {
     // Keep track of points
     private int points;
-    private int num_enemies_killed;
+    public int num_enemies_killed;
 
     // Higher difficulty at later stages
     public int stage;
@@ -21,6 +22,7 @@ public class GameManagerScript : MonoBehaviour
     public Spawner spawner;
 
     public UnityAction<int> enemyKilled;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,5 +59,8 @@ public class GameManagerScript : MonoBehaviour
         }
 
         AudioSingleton.Instance.PlayEnemyKilled();
+    
     }
+
+
 }
