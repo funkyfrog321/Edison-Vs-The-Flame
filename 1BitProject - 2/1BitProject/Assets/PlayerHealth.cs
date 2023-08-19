@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
-
+    public static event Action OnPlayerDeath;
     public int health;
     public int maxHealth = 10;
 
@@ -19,7 +20,12 @@ public class PlayerHealth : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
+            health = 0;
             Destroy(gameObject);
+
+            //Display our game over screen
+            OnPlayerDeath?.Invoke();
         }
     }
+
 }
