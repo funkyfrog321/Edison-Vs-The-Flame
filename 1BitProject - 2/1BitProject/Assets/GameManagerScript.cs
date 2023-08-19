@@ -21,7 +21,9 @@ public class GameManagerScript : MonoBehaviour
 
     public Spawner spawner;
 
-    public UnityAction<int> enemyKilled;
+    public UnityAction<bool> enemyKilled;
+
+    public static event Action OnChandelureKilled;
 
 
     // Start is called before the first frame update
@@ -40,11 +42,16 @@ public class GameManagerScript : MonoBehaviour
         
     }
 
-    void OnEnemyKilled(int pointValue=1)
+    void OnEnemyKilled(bool isChandelure=false)
     {
         Debug.Log("Enemy kill confirmed");
-        points += pointValue;
+        points += isChandelure ? 240 : 1;
         num_enemies_killed += 1;
+
+        if (isChandelure)
+        {
+            OnChandelureKilled?.Invoke();
+        }
 
         if (num_enemies_killed % ENEMIES_PER_STAGE == 0)
         {

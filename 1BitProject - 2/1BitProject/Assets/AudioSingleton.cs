@@ -30,7 +30,7 @@ public class AudioSingleton : MonoBehaviour
             Instance = this;
         }
     }
-    
+
     public void PlayGameMusic()
     {
         edisonMusic.Play();

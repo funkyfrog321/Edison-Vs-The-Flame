@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         rb2d.rotation = aimAngle;
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             weapon.Fire();
         }

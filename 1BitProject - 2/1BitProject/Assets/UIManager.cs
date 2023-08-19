@@ -5,18 +5,22 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using JetBrains.Annotations;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UIManager : MonoBehaviour
 {
     public TMP_Text score;
     public GameObject gameOverMenu;
+    public GameObject victoryMenu;
     public GameManagerScript gameManagerScript;
-    public TMP_Text enemyRecord;
+    public TMP_Text gameover_enemyRecord;
+    public TMP_Text victory_enemyRecord;
 
     public void Start()
     {
         score.text = "Stage = " + gameManagerScript.stage;
-        enemyRecord.text = "Enemies Killed: " + gameManagerScript.num_enemies_killed;
+        gameover_enemyRecord.text = "Enemies Killed: " + gameManagerScript.num_enemies_killed;
+        victory_enemyRecord.text = "Enemies Killed: " + gameManagerScript.num_enemies_killed;
     }
 
     public void Update()
@@ -25,17 +29,25 @@ public class UIManager : MonoBehaviour
         string updatedText = "Stage: " + fixedNumber;
         score.text = updatedText;
 
-        enemyRecord.text = "Enemies Killed: " + gameManagerScript.num_enemies_killed;
+        gameover_enemyRecord.text = "Enemies Killed: " + gameManagerScript.num_enemies_killed;
+        victory_enemyRecord.text = "Enemies Killed: " + gameManagerScript.num_enemies_killed;
     }
 
     private void OnEnable()
     {
-        PlayerHealth.OnPlayerDeath += EnableGameOverMenu;
+            PlayerHealth.OnPlayerDeath += EnableGameOverMenu;
+            GameManagerScript.OnChandelureKilled += EnableVictoryMenu;
     }
 
     private void OnDisable()
     {
         PlayerHealth.OnPlayerDeath -= EnableGameOverMenu;
+        GameManagerScript.OnChandelureKilled -= EnableVictoryMenu;
+    }
+
+    public void EnableVictoryMenu()
+    {
+        victoryMenu.SetActive(true);
     }
 
     public void EnableGameOverMenu()

@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
     public GameObject spawnPointsHolder;
     public List<Transform> spawnPoints = new List<Transform>();
 
-    public UnityAction<int> onEnemyKilled;
+    public UnityAction<bool> onEnemyKilled;
     //public UnityEvent<int> enemyKilled;
     
 
@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
         new_enemy.GetComponent<Enemy>().opponent = player.transform;
         new_enemy.GetComponent<EnemyDamage>().playerHealth = player.GetComponent<PlayerHealth>();
 
-        new_enemy.GetComponent<Enemy>().killed.AddListener(() => onEnemyKilled(1));
+        new_enemy.GetComponent<Enemy>().killed.AddListener((bool isChandy) => onEnemyKilled(isChandy));
     }
 
     public void SpawnChandelure()
@@ -87,5 +87,7 @@ public class Spawner : MonoBehaviour
         GameObject newChandelure = Instantiate(chandelure, spawnTransform);
         newChandelure.GetComponent<Enemy>().opponent = player.transform;
         newChandelure.GetComponent<EnemyDamage>().playerHealth = player.GetComponent<PlayerHealth>();
+
+        newChandelure.GetComponent<Enemy>().killed.AddListener((bool isChandy) => onEnemyKilled(isChandy));
     }
 }

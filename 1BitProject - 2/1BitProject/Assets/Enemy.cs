@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public UnityEvent killed = new UnityEvent();
+    public UnityEvent<bool> killed = new UnityEvent<bool>();
 
 
     public Transform opponent; //literally just changed it
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        killed.Invoke();
+        killed.Invoke(isChandelure);
     }
 
     private void ChandelureStages()
