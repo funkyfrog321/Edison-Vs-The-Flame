@@ -9,6 +9,7 @@ public class InitializeGlowShader : MonoBehaviour
     Camera camera;
     Vector3 lastPosition;
     Matrix4x4 dither;
+    //public static List<Transform> lights = new List<Transform>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,22 @@ public class InitializeGlowShader : MonoBehaviour
                                 new Vector4(3, 11, 1, 9) * 0.0625f,
                                 new Vector4(15, 7, 13, 5) * 0.0625f);
 
+        //lights.Add(transform);
     }
+
+    //void PrintAllLightTransforms()
+    //{
+    //    Debug.Log("All of the lights");
+    //    foreach (Transform t in lights)
+    //    {
+    //        Debug.Log(t.position);
+    //    }
+    //}
+
+    //public void RemoveLight()
+    //{
+    //    lights.Remove(transform);
+    //}
 
     // Update is called once per frame
     void Update()

@@ -43,5 +43,13 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         Debug.Log("Enemy destroyed");
+        // Remove this glow from the static list of lights
+        //Transform glow = transform.GetChild(0);
+        //if (glow.name != "Glow")
+        //{
+        //    Debug.LogError("Child is not a glow object");
+        //    return;
+        //}
+        //glow.GetComponent<InitializeGlowShader>().RemoveLight();
     }
 }
