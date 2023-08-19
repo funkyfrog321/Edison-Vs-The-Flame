@@ -8,15 +8,15 @@ public class Enemy : MonoBehaviour
     public UnityEvent killed = new UnityEvent();
 
 
-    public Transform opponent; //literally just changed it 
+    public Transform opponent; //literally just changed it
     public float moveSpeed;
     public int health;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
             // Move this object towards the target
             transform.position += moveDirection * moveDistance;
         }
-        
+
     }
 
     public void TakeDamage(int damage = 1)
